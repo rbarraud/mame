@@ -969,6 +969,7 @@ function linkProjects_mame_mess(_target, _subtarget)
 		"bandai",
 		"banctec",
 		"be",
+		"beckman",
 		"bitcorp",
 		"bnpo",
 		"bondwell",
@@ -1636,6 +1637,11 @@ files {
 	MAME_DIR .. "src/mame/drivers/bebox.cpp",
 	MAME_DIR .. "src/mame/includes/bebox.h",
 	MAME_DIR .. "src/mame/machine/bebox.cpp",
+}
+
+createMESSProjects(_target, _subtarget, "beckman")
+files {
+	MAME_DIR .. "src/mame/drivers/beckmandu600.cpp",
 }
 
 createMESSProjects(_target, _subtarget, "bitcorp")
