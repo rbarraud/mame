@@ -34,7 +34,7 @@ private:
 	void beckmandu600_mem(address_map &map);
 
 	required_device<cpu_device> m_maincpu;
-	required_device<mc68681_device> m_duart0;
+	required_device<xr68c681_device> m_duart0;
 	DECLARE_WRITE_LINE_MEMBER(duart0_irq_handler);
 };
 
@@ -61,7 +61,7 @@ void beckmandu600_state::beckmandu600(machine_config &config)
 	FSCPU32(config, m_maincpu, 16000000); /* this will have to be changed to 68332 eventually */
 	m_maincpu->set_addrmap(AS_PROGRAM, &beckmandu600_state::beckmandu600_mem);
 
-	MC68681(config, m_duart0, 3686400); /* this will have to be changed to XR68C681 eventually */
+	XR68C681(config, m_duart0, 3686400);
 	m_duart0->a_tx_cb().set("rs232", FUNC(rs232_port_device::write_txd));
 	m_duart0->irq_cb().set(*this, FUNC(beckmandu600_state::duart0_irq_handler));
 
